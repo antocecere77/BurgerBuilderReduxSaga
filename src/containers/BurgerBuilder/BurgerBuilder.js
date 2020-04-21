@@ -27,8 +27,7 @@ class BurgerBuilder extends Component {
         error: false
     }
 
-    componentDidMount() {
-    
+    componentDidMount() {        
         axios.get('/ingredients.json')
             .then(response => {
                 this.setState({ingredients: response.data})
@@ -90,28 +89,29 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         //alert('You continue');
-        this.setState({loading: true});
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Antonio Cecere',
-                address: {
-                    street: 'Teststreet, 1',
-                    zipCode: '41351',
-                    country: 'Italy'
-                }, 
-                email: 'test@test.com',                
-            },
-            deliveryMethod: 'fastest'
-        }
-        axios.post('/orders.json', order)
-            .then(response => {
-                this.setState({loading: false, purchasing: false});
-            })
-            .catch(error => {
-                this.setState({loading: true, purchasing: false});
-            });  
+        // this.setState({loading: true});
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Antonio Cecere',
+        //         address: {
+        //             street: 'Teststreet, 1',
+        //             zipCode: '41351',
+        //             country: 'Italy'
+        //         }, 
+        //         email: 'test@test.com',                
+        //     },
+        //     deliveryMethod: 'fastest'
+        // }
+        // axios.post('/orders.json', order)
+        //     .then(response => {
+        //         this.setState({loading: false, purchasing: false});
+        //     })
+        //     .catch(error => {
+        //         this.setState({loading: true, purchasing: false});
+        //     });  
+        this.props.history.push('/checkout');
     }
 
     render() {
