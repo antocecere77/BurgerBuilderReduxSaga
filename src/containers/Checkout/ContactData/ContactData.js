@@ -8,7 +8,7 @@ import Input from '../../../components/UI/Input/Input';
 import classes from './ContactData.css';
 
 import axios from '../../../axios-orders';
-import * as actionTypes from '../../../store/actions';
+import * as actionTypes from '../../../store/actions/actionTypes';
 
 class ContactData extends Component {
     state = {
