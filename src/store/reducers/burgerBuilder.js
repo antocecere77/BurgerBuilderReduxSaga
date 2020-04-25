@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
@@ -45,9 +44,20 @@ const reducer = (state = initialState, action) => {
                 },
                 totalPrice: 4
             };
-    }
-
-    return state;
+        case actionTypes.SET_INGREDIENTS:
+            return {
+                ...state,
+                ingredients: action.ingredients,
+                error: false
+            };
+        case actionTypes.FETCH_INGREDIENTS_FAILED:
+            return {
+                ...state,
+                error: true
+            };   
+        default:
+            return state;
+    }    
 }
 
 export default reducer;
