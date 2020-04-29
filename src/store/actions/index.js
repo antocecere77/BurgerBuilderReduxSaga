@@ -1,6 +1,8 @@
 export { addIngredient, 
         removeIngredient, 
-        initIngredients } 
+        initIngredients,
+        setIngredients,
+        fecthIngredientsFailed } 
 from './burgerBuilder';
 
 export { purchaseBurger, 
